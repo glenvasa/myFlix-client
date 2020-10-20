@@ -53,6 +53,11 @@ export class MainView extends React.Component {
     });
   }
 
+  setInitial() {
+    this.setState({
+      selectedMovie: null
+    });
+  }
 
   render() {
     // If the state isn't initialized, this will throw on runtime
@@ -64,8 +69,8 @@ export class MainView extends React.Component {
 
     return (
       <div className="main-view">
-        {selectedMovie
-          ? <MovieView movie={selectedMovie} />
+        {this.state.selectedMovie
+          ? <MovieView movie={this.state.selectedMovie} onClick={() => this.setInitial()} />
           : movies.map(movie => (
             <MovieCard key={movie._id} movie={movie} onClick={movie => this.onMovieClick(movie)} />
           ))
