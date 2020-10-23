@@ -1,26 +1,13 @@
 import React from 'react';
 import axios from 'axios';
+
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import { RegistrationView } from '../registration-view/registration-view';
+import { LoginView } from '../login-view/login-view';
 
-// class MainView extends React.Component {
-//   constructor() {
-//     // Call the superclass constructor
-//     // so React can initialize it
-//     super();
+import './main-view.scss';
 
-//     // Initialize the state to an empty object so we can destructure it later
-//     this.state = {};
-//   }
-
-//   // This overrides the render() method of the superclass
-//   // No need to call super() though, as it does nothing by default
-//   render() {
-//     return (
-//       <div className="main-view"></div>
-//     );
-//   }
-// }
 
 export class MainView extends React.Component {
 
