@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Staatliches&display=swap');
+
+body {
+  background-color: #e4ecf2;
+  font-family: staatliches;
+}
+
+h2 {
+  color: #690f38;
+  text-align: center;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  font-size: 400%
+}
+
+form {
+  width: 550px;
+  // height: 450px;
+  margin: auto;
+  position: relative;
+ }
+
+ input {
+  width: 375px;
+  height: 25px;
+  margin-bottom: 1em;
+ }
+
+ .login-buttons {
+   margin-top: 75px;
+   text-align: center 
+ }
+
+ .button-login {
+   background-color: #044266;
+ }
