@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Staatliches&display=swap');
+
+
+body {
+  background-color: #e4ecf2;
+  font-family: staatliches;
+}
+
+
+
+.movie-poster {
+  float: left;
+  margin-top: 30px;
+  width: 250px;
+
+
+}
+
+.movie-info {
+  margin-top: 30px;
+  margin-left: 250px;
+
+}
+
+.movie-title {
+  margin-bottom: 10px;
+  margin-left: 20px;
+  font-size: 35px
+}
+
+.movie-description {
+  margin-bottom: 10px;
+  margin-left: 20px;
+  font-size: 20px
+}
+
+.movie-genre {
+  margin-bottom: 10px;
+  margin-left: 20px;
+  font-size: 20px
+}
+
+.movie-director {
+  margin-bottom: 10px;
+  margin-left: 20px;
+  font-size: 20px
+}
+
+.back-button {
+  margin-top: 10px;
+  margin-left: 20px;
+}
