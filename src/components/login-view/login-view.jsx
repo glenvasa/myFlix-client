@@ -41,9 +41,9 @@ export function LoginView(props) {
         </Form.Group> */}
       </Form>
       <div className="login-buttons">
-        <Button onClick={handleSubmit} variant="primary" type="submit" className="button-login mx-auto" style={{ width: '200px' }}>Login</Button>
+        <Button onClick={handleSubmit} variant="primary" type="submit" className="button-login mx-auto">Login</Button>
         {/* <Link to={"/register"}> */}
-        <Button variant="success" className="button-register ml-1" style={{ width: '200px' }}>Register</Button>
+        <Button variant="success" className="button-register ml-1">Register</Button>
         {/* </Link> */}
       </div>
 
