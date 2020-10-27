@@ -23,7 +23,7 @@ export function RegistrationView(props) {
 
   return (
     <div className="registration-view">
-      <h3>Register a New MyFix User</h3>
+      <h3>Register as a New MyFlix User</h3>
 
       <Form className="registration-form">
         <Form.Group controlId="formBasicUsername" className="registration-item">
@@ -47,10 +47,15 @@ export function RegistrationView(props) {
           <Form.Label>Enter Date of Birth: </Form.Label>
           <Form.Control type="date" placeholder="YYYY-MM-DD" value={BirthDate} onChange={e => setBirthDate(e.target.value)} />
         </Form.Group>
-
-        <Button type="submit" variant="primary" className="button-registration" onClick={handleRegister}>Submit</Button>
-        <Link to={"/"}><Button variant="secondary" className="button-cancel">Cancel</Button></Link>
       </Form>
+      <div className="btns-reg">
+        <Button type="submit" variant="success" className="button-registration" onClick={handleRegister}>Register</Button>
+        {/* <Link to={"/"}>  */}
+        <Button variant="secondary" className="button-cancel">Cancel</Button>
+        {/* </Link>  */}
+      </div>
+
+
     </div>
   );
 }
