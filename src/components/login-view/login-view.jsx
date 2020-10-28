@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { RegistrationView } from '../registration-view/registration-view';
+import axios from 'axios';
+// import { RegistrationView } from '../registration-view/registration-view';
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './login-view.scss';
 
+import { Link } from 'react-router-dom';
 
 
 export function LoginView(props) {
@@ -15,10 +17,17 @@ export function LoginView(props) {
   // Allows login with random credentials for existing user, no functionality for new users yet
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(username, password);
-
-    // Send a request to the server for authentication then call props.onLoggedIn(Username)
-    props.onLoggedIn(username);
+    axios.post('https://myflix2020.herokuapp.com/login', {
+      Username: username,
+      Password: password
+    })
+      .then(response => {
+        const data = response.data;
+        props.onLoggedIn(data);
+      })
+      .catch(e => {
+        console.log('no such user')
+      });
   };
 
   return (
@@ -42,9 +51,9 @@ export function LoginView(props) {
       </Form>
       <div className="login-buttons">
         <Button onClick={handleSubmit} variant="primary" type="submit" className="button-login mx-auto">Login</Button>
-        {/* <Link to={"/register"}> */}
-        <Button variant="success" className="button-register ml-1">Register</Button>
-        {/* </Link> */}
+        <Link to={"/register"}>
+          <Button variant="success" className="button-register ml-1">Register</Button>
+        </Link>
       </div>
 
 
