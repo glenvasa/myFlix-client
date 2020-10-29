@@ -9,10 +9,10 @@ import { Link } from 'react-router-dom';
 
 
 export function RegistrationView(props) {
-  const [Username, setUsername] = useState('');
-  const [Password, setPassword] = useState('');
-  const [Email, setEmail] = useState('');
-  const [Birthdate, setBirthdate] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [birthdate, setBirthdate] = useState('');
 
   // Allows login with random credentials for existing user, no functionality for new users yet
   const handleRegister = (e) => {
