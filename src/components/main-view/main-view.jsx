@@ -84,7 +84,7 @@ export class MainView extends React.Component {
   render() {
     // If the state isn't initialized, this will throw on runtime
     // before the data is initially loaded
-    const { movies, selectedMovie, user } = this.state;
+    const { movies, user } = this.state;
 
     /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details 
     are passed as a prop to the LoginView*/
