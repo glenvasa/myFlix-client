@@ -37,7 +37,7 @@ export class ProfileView extends React.Component {
           Pasword: res.data.Password,
           Email: res.data.Email,
           Birthdate: res.data.Birthdate,
-          FavoriteMovies: res.data.Favorites
+          FavoriteMovies: res.data.FavoriteMovies
         });
       })
       .catch(function (error) {
@@ -94,7 +94,7 @@ export class ProfileView extends React.Component {
           <Card.Body>
             <Card.Text className='profile-text'>Username: {this.state.Username}</Card.Text>
             <Card.Text className='profile-text'>Email: {this.state.Email}</Card.Text>
-            <Card.Text className='profile-text'>Birthdate: {this.state.Birthdate.format('MM-DD-YYYY')}</Card.Text>
+            <Card.Text className='profile-text'>Birthdate: {this.state.Birthdate}</Card.Text>
             <Link to={'/users/:userId/update'}>
               <Button className='to-update-profile-button'>Update Profile</Button>
             </Link>
