@@ -27,6 +27,7 @@ export function RegistrationView(props) {
       .then(response => {
         const data = response.data;
         console.log(data);
+        alert('You are now registered and may login')
         window.open('/', '_self');
       })
       .catch(e => {
