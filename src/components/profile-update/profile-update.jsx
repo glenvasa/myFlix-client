@@ -39,51 +39,51 @@ export function ProfileUpdate(props) {
         console.log('error registering user');
         alert('There was an error updateing your profile. Please make sure all fields are completed.');
       });
+  }
 
+  return (
+    <div className="profile-update">
+      <h3>Update Your Profile</h3>
 
-    return (
-      <div className="profile-update">
-        <h3>Update Your Profile</h3>
+      <Form className="update-form">
+        <Form.Group controlId="formBasicUsername" className="update-item">
+          <Form.Label>Username: </Form.Label>
+          <Form.Control type="text" value={username} placeholder="Update Username" onChange={e => updateUsername(e.target.value)} />
+          <Form.Text className="text-muted">Must be alphanumberic and have a minimum of 8 characters.</Form.Text>
+        </Form.Group>
 
-        <Form className="update-form">
-          <Form.Group controlId="formBasicUsername" className="update-item">
-            <Form.Label>Username: </Form.Label>
-            <Form.Control type="text" value={Username} placeholder="Update Username" onChange={e => updateUsername(e.target.value)} />
-            <Form.Text className="text-muted">Must be alphanumberic and have a minimum of 8 characters.</Form.Text>
-          </Form.Group>
+        <Form.Group controlId="formBasicPassword" className="update-item">
+          <Form.Label>Update Password: </Form.Label>
+          <Form.Control type="password" value={password} placeholder="Update Password" onChange={e => updatePassword(e.target.value)} />
+          <Form.Text className="text-muted">Must be alphanumberic and have 8-15 characters.</Form.Text>
+        </Form.Group>
 
-          <Form.Group controlId="formBasicPassword" className="update-item">
-            <Form.Label>Update Password: </Form.Label>
-            <Form.Control type="password" value={Password} placeholder="Update Password" onChange={e => updatePassword(e.target.value)} />
-            <Form.Text className="text-muted">Must be alphanumberic and have 8-15 characters.</Form.Text>
-          </Form.Group>
+        <Form.Group controlId="formBasicEmail" className="update-item">
+          <Form.Label>Email Address: </Form.Label>
+          <Form.Control type="email" placeholder="Update Email" value={email} onChange={e => updateEmail(e.target.value)} />
+        </Form.Group>
 
-          <Form.Group controlId="formBasicEmail" className="update-item">
-            <Form.Label>Email Address: </Form.Label>
-            <Form.Control type="email" placeholder="Update Email" value={Email} onChange={e => updateEmail(e.target.value)} />
-          </Form.Group>
-
-          <Form.Group controlId="formBasicBirthdate" className="update-item">
-            <Form.Label>Date of Birth: </Form.Label>
-            <Form.Control type="date" placeholder="YYYY-MM-DD" value={Birthdate} onChange={e => updateBirthdate(e.target.value)} />
-          </Form.Group>
-        </Form>
-        <div className="btns-update">
-          <Button type="submit" variant="success" className="button-update-profile" onClick={handleUpdate}>Submit</Button>
-          <Link to={"/users/:userId"}>
-            <Button variant="secondary" className="button-cancel">Cancel</Button>
-          </Link>
-        </div>
+        <Form.Group controlId="formBasicBirthdate" className="update-item">
+          <Form.Label>Date of Birth: </Form.Label>
+          <Form.Control type="date" placeholder="YYYY-MM-DD" value={birthdate} onChange={e => updateBirthdate(e.target.value)} />
+        </Form.Group>
+      </Form>
+      <div className="btns-update">
+        <Button type="submit" variant="success" className="button-update-profile" onClick={handleUpdate}>Submit</Button>
+        <Link to={"/users/:userId"}>
+          <Button variant="secondary" className="button-cancel">Cancel</Button>
+        </Link>
       </div>
-    );
-  }
+    </div>
+  );
+}
 
-  ProfileUpdate.propTypes = {
-    user: PropTypes.shape({
-      Username: PropTypes.string.isRequired,
-      Password: PropTypes.string.isRequired,
-      Email: PropTypes.string.isRequired,
-      Birthdate: PropTypes.instanceOf(Date).isRequired
-    })
-  }
+
+ProfileUpdate.propTypes = {
+  user: PropTypes.shape({
+    Username: PropTypes.string.isRequired,
+    Password: PropTypes.string.isRequired,
+    Email: PropTypes.string.isRequired,
+    Birthdate: PropTypes.instanceOf(Date).isRequired
+  })
 }
