@@ -22,7 +22,7 @@ export class DirectorView extends React.Component {
 
 
   render() {
-    const { director } = this.props;
+    const { director, movie } = this.props;
 
     if (!director) return <div className='main-view' />;
 
@@ -30,14 +30,14 @@ export class DirectorView extends React.Component {
       <div className='director-view'>
         <Card style={{ width: '45 rem' }} className='director-card'>
           <Card.Body>
-            <Card.Title className='director-name'>{director.Name}</Card.Title>
-            <Card.Text>Born: {director.Birth}</Card.Text>
-            <Card.Text>Died: {director.Death}</Card.Text>
-            <Card.Text>Bio: {director.Bio}</Card.Text>
+            <Card.Title className='dir-name'>{director.Name}</Card.Title>
+            <Card.Text className='dir-born'>Born: {director.Birth}</Card.Text>
+            <Card.Text className='dir-died'>Died: {director.Death}</Card.Text>
+            <Card.Text className='dir-bio'>Bio: {director.Bio}</Card.Text>
           </Card.Body>
           <Link to={'/'}>
             {/* <Link to={`/movies/${movie._id}`}> */}
-            <Button variant='link' className='dirview-back-button'>Go Back</Button>
+            <Button variant='link' className='dirview-back-button' style={{ background: '#690f38' }}>Go Back</Button>
           </Link>
         </Card>
       </div>
