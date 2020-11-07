@@ -6,18 +6,27 @@ body {
   font-family: staatliches;
 }
 
+.movie-poster-section {
+  float: left;
+  text-align: center;
+  margin-left: 7em;
+  margin-top: .5em;
+  margin-right: 2em;
+}
 
+.button-add-favorite {
+  
+  margin: 1em auto;
+  
+}
 
 .movie-poster {
-  float: left;
-  margin-top: 30px;
-  width: 250px;
-
+  width: 300px;
 
 }
 
 .movie-info {
-  margin-top: 30px;
+  margin-top: 50px;
   margin-left: 250px;
 
 }
@@ -29,12 +38,14 @@ body {
 }
 
 .movie-description {
+  width: 75%;
   margin-bottom: 10px;
   margin-left: 20px;
   font-size: 20px
 }
 
 .movie-genre {
+
   margin-bottom: 10px;
   margin-left: 20px;
   font-size: 20px
@@ -47,6 +58,23 @@ body {
 }
 
 .back-button {
-  margin-top: 10px;
-  margin-left: 20px;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.director-button {
+  display: flex;
+
+}
+
+
+.genre-button {
+  display: flex;
+
+}
+
+
+.genre-button,
+.director-button {
+  color: white;
 }
