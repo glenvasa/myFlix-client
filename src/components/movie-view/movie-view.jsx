@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import PropTypes from 'prop-types';
@@ -12,6 +13,19 @@ export class MovieView extends React.Component {
     this.state = {};
   }
 
+  addToFavoriteMovies(movie) {
+    const token = localStorage.getItem('token');
+    const userId = localStorage.getItem('user');
+    axios.post(`https://myflix2020.herokuapp.com/users/${userId}/Movies/${movie._id}`,
+      { username: localStorage.getItem('user') },
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }).then((res) => {
+        console.log(res);
+        alert('This movie has been added to your Favorites.');
+      });
+  }
+
   render() {
     const { movie } = this.props;
 
@@ -19,7 +33,15 @@ export class MovieView extends React.Component {
 
     return (
       <div className="movie-view">
-        <img className="movie-poster" src={movie.ImagePath} />
+        <section className="movie-poster-section">
+          <img className="movie-poster" src={movie.ImagePath} />
+          <div className="movie-poster-buttons">
+            <Button onClick={() => this.addToFavoriteMovies(movie)} className="button-add-favorite" style={{ background: '#690f38' }}>Add to Favorite Movies</Button>
+            <Link to={"/"}>
+              <Button className="back-button" style={{ background: '#690f38' }} >Go Back</Button>
+            </Link>
+          </div>
+        </section>
         <section className="movie-info">
           <div className="movie-title">
             <span className="label">Title: </span>
@@ -43,9 +65,10 @@ export class MovieView extends React.Component {
               <Button variant="link" className="director-button" style={{ background: '#690f38' }}>Director Info</Button>
             </Link>
           </div>
-          <Link to={"/"}>
+          {/* <Button onClick={() => this.addToFavoriteMovies(movie)} className="button-add-favorite">Add to Favorite Movies</Button> */}
+          {/* <Link to={"/"}>
             <Button className="back-button" style={{ background: '#690f38' }} >Go Back</Button>
-          </Link>
+          </Link> */}
         </section>
       </div >
     );
