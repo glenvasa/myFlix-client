@@ -7,6 +7,8 @@ import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import './profile-view.scss';
 
 
@@ -53,13 +55,16 @@ export class ProfileView extends React.Component {
 
   deleteUser(token) {
     const userId = localStorage.getItem('user');
+
+
     if (!confirm('Do you really want to delete your profile?')) return;
     axios.delete(`https://myflix2020.herokuapp.com/users/${userId}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then((res) =>
         console.log(res))
-    localStorage.removeItem('token');
+    alert('Your profile has been deleted')
+    localStorage.removeItem('token', 'user');
     window.open('/', '_self');
   }
 
@@ -89,29 +94,31 @@ export class ProfileView extends React.Component {
 
     return (
       <Container>
-        <h2 className="profile-title">Profile Page of {this.state.Username}</h2>
-        <Card style={{ width: '50rem' }} className="profile-view">
+        {/* <h2 className="profile-title">Profile Page of {this.state.Username}</h2> */}
+        <Card style={{ width: '35%' }} className="profile-view">
           <Card.Body>
             <Card.Text className='profile-text'>Username: {this.state.Username}</Card.Text>
             <Card.Text className='profile-text'>Email: {this.state.Email}</Card.Text>
-            <Card.Text className='profile-text'>Birthdate: {this.state.Birthdate}</Card.Text>
-            <Link to={'/users/:userId/update'}>
-              <Button className='to-update-profile-button'>Update Profile</Button>
-            </Link>
-            <Button onClick={() => this.deleteUser()} className='to-delete-profile-button'>Delete Profile</Button>
-            <Link to={'/'}>
-              <Button className='profile-go-back-button'>Go Back</Button>
-            </Link>
+            {/* <Card.Text className='profile-text'>Birthdate: {this.state.Birthdate}</Card.Text> */}
+            <div className="profile-buttons">
+              <Link to={'/users/:userId/update'}>
+                <Button className='profile-button to-update-profile-button'>Update Profile</Button>
+              </Link>
+              <Button onClick={() => this.deleteUser()} className='profile-button to-delete-profile-button ml-1'>Delete Profile</Button>
+              <Link to={'/'}>
+                <Button className='profile-button profile-go-back-button ml-1'>Go Back</Button>
+              </Link>
+            </div>
           </Card.Body>
         </Card>
         <Container>
-          <h2 className='favorite-movies-title'>Your Favorite Movies</h2>
+          <h3 className='favorite-movies-title'>Your Favorite Movies</h3>
           {FavoriteMoviesList.map((movie) => {
             return (
-              <Card key={movie._.id} style={{ width: '15rem' }} className="favoite-movies">
-                <Card.Img variant='top' src={movie.ImagePath} />
+              <Card key={movie._id} style={{ width: '15rem' }} className="favorite-movies">
+                <Card.Img variant='top' src={movie.ImagePath} className="fav-movies-poster" />
                 <Card.Body>
-                  <Link to={'/movies/${movie._id}'}>
+                  <Link to={`/movies/${movie._id}`}>
                     <Button variant='link' className='fav-movie-info'>Movie Info</Button>
                   </Link>
                   <Button variant='link' className='fav-movie-remove' onClick={() => this.deleteFavoriteMovie(movie)}>Remove Movie</Button>
