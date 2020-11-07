@@ -49,13 +49,13 @@ export function ProfileUpdate(props) {
         <Form.Group controlId="formBasicUsername" className="update-item">
           <Form.Label>Username: </Form.Label>
           <Form.Control type="text" value={username} placeholder="Update Username" onChange={e => updateUsername(e.target.value)} />
-          <Form.Text className="text-muted">Must be alphanumberic and have a minimum of 8 characters.</Form.Text>
+          <Form.Text className="text-muted">Must be alphanumberic and have a minimum of 5 characters.</Form.Text>
         </Form.Group>
 
         <Form.Group controlId="formBasicPassword" className="update-item">
           <Form.Label>Update Password: </Form.Label>
           <Form.Control type="password" value={password} placeholder="Update Password" onChange={e => updatePassword(e.target.value)} />
-          <Form.Text className="text-muted">Must be alphanumberic and have 8-15 characters.</Form.Text>
+          {/* <Form.Text className="text-muted">Suggested that password have at least 8 characters.</Form.Text> */}
         </Form.Group>
 
         <Form.Group controlId="formBasicEmail" className="update-item">
@@ -69,9 +69,9 @@ export function ProfileUpdate(props) {
         </Form.Group>
       </Form>
       <div className="btns-update">
-        <Button type="submit" variant="success" className="button-update-profile" onClick={handleUpdate}>Submit</Button>
+        <Button type="submit" className="button-update-profile" onClick={handleUpdate}>Submit</Button>
         <Link to={"/users/:userId"}>
-          <Button variant="secondary" className="button-cancel">Cancel</Button>
+          <Button className="button-cancel">Cancel</Button>
         </Link>
       </div>
     </div>
