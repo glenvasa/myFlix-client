@@ -29,11 +29,12 @@ export class GenreView extends React.Component {
         <Card style={{ width: '45 rem' }} className='genre-card'>
           <Card.Body>
             <Card.Title className='genre-name'>{genre.Name}</Card.Title>
-            <Card.Text>{genre.Description}</Card.Text>
+            <Card.Text className="genre-description">{genre.Description}</Card.Text>
           </Card.Body>
+
           <Link to={'/'}>
             {/* <Link to={`/movies/${movie._id}`}> */}
-            <Button variant='link' className='genreview-back-button'>Go Back</Button>
+            <Button className='genreview-back-button' style={{ background: '#690f38' }}>Go Back</Button>
           </Link>
         </Card>
       </div>
