@@ -43,13 +43,13 @@ export function RegistrationView(props) {
         <Form.Group controlId="formBasicUsername" className="registration-item">
           <Form.Label>Create Username: </Form.Label>
           <Form.Control type="text" value={username} placeholder="Username" onChange={e => setUsername(e.target.value)} />
-          <Form.Text className="text-muted">Must be alphanumberic and have a minimum of 8 characters.</Form.Text>
+          <Form.Text className="text-muted">Must be alphanumberic and have a minimum of 5 characters.</Form.Text>
         </Form.Group>
 
         <Form.Group controlId="formBasicPassword" className="registration-item">
           <Form.Label>Create Password: </Form.Label>
           <Form.Control type="password" value={password} placeholder="Password" onChange={e => setPassword(e.target.value)} />
-          <Form.Text className="text-muted">Must be alphanumberic and have 8-15 characters.</Form.Text>
+          {/* <Form.Text className="text-muted">Must be alphanumberic and have 8-15 characters.</Form.Text> */}
         </Form.Group>
 
         <Form.Group controlId="formBasicEmail" className="registration-item">
@@ -65,11 +65,9 @@ export function RegistrationView(props) {
       <div className="btns-reg">
         <Button type="submit" variant="success" className="button-registration" onClick={handleRegister}>Register</Button>
         <Link to={"/"}>
-          <Button variant="secondary" className="button-to-login">Login Here</Button>
+          <Button className="button-to-login">Login</Button>
         </Link>
       </div>
-
-
     </div>
   );
 }
