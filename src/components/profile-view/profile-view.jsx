@@ -47,26 +47,28 @@ export class ProfileView extends React.Component {
       });
   }
 
+  onLoggedOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    window.open('/', '_self');
+  }
 
   componentDidMount() {
     const accessToken = localStorage.getItem('token');
     this.getUser(accessToken);
   }
 
-  deleteUser(token) {
-    const userId = localStorage.getItem('user');
-
-
+  deleteUser() {
     if (!confirm('Do you really want to delete your profile?')) return;
-    axios.delete(`https://myflix2020.herokuapp.com/users/${userId}`, {
-      headers: { Authorization: `Bearer ${token}` }
+    axios.delete(`https://myflix2020.herokuapp.com/users/${localStorage.getItem('user')}`, {
+      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     })
       .then((res) =>
         console.log(res))
     alert('Your profile has been deleted')
-    localStorage.removeItem('token', 'user');
-    window.open('/', '_self');
+    this.onLoggedOut();
   }
+
 
   deleteFavoriteMovie(movie) {
     const token = localStorage.getItem('token');
@@ -81,11 +83,7 @@ export class ProfileView extends React.Component {
       });
   }
 
-  onLoggedOut() {
-    localStorage.removeItem('token');
-    localStorage.removeitem('user');
-    window.open('/', '_self');
-  }
+
 
   render() {
     const { movies } = this.props;
