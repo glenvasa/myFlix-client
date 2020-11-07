@@ -14,21 +14,54 @@ export function LoginView(props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  // Allows login with random credentials for existing user, no functionality for new users yet
+  const [usernameErr, setUsernameErr] = useState({});
+  const [passwordErr, setPasswordErr] = useState({});
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('https://myflix2020.herokuapp.com/login', {
-      Username: username,
-      Password: password
-    })
-      .then(response => {
-        const data = response.data;
-        props.onLoggedIn(data);
+    const isValid = formValidation();
+
+    if (isValid) {
+      axios.post('https://myflix2020.herokuapp.com/login', {
+        Username: username,
+        Password: password
       })
-      .catch(e => {
-        console.log('no such user')
-      });
-  };
+        .then(response => {
+          const data = response.data;
+          props.onLoggedIn(data);
+        })
+        .catch(e => {
+          console.log('no such user')
+          alert('Please make sure to enter all login information correctly');
+        });
+    };
+  }
+
+  const formValidation = () => {
+    const usernameErr = {};
+    const passwordErr = {};
+    let isValid = true;
+
+    if (username.trim().length < 1) {
+      usernameErr.usernameMissing = 'Username is required to login';
+      isValid = false;
+    }
+
+    if (username.trim().length < 5 && username.trim().length >= 1) {
+      usernameErr.usernameShort = 'Username is at least 5 characters';
+      isValid = false;
+    }
+
+    if (password.trim().length < 1) {
+      passwordErr.passwordMissing = 'Password is required to login';
+      isValid = false;
+    }
+
+
+    setUsernameErr(usernameErr);
+    setPasswordErr(passwordErr);
+    return isValid;
+  }
 
   return (
     <div className="login-view">
@@ -38,11 +71,17 @@ export function LoginView(props) {
         <Form.Group controlId="formBasicUsername" className="login-item m-auto">
           <Form.Label>Username: </Form.Label>
           <Form.Control type="text" value={username} onChange={e => setUsername(e.target.value)} placeholder="Enter Username" />
+          {Object.keys(usernameErr).map((key) => {
+            return <div key={key} style={{ color: 'red' }}>{usernameErr[key]}</div>
+          })}
         </Form.Group>
 
         <Form.Group controlId="formBasicPassword" className="login-item m-auto">
           <Form.Label>Password: </Form.Label>
           <Form.Control type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Enter Password" />
+          {Object.keys(passwordErr).map((key) => {
+            return <div key={key} style={{ color: 'red' }}>{passwordErr[key]}</div>
+          })}
         </Form.Group>
 
         {/* <Form.Group controlId="formBasicCheckbox" className="login-item m-auto">
