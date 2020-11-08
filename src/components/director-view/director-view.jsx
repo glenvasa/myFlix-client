@@ -37,7 +37,7 @@ export class DirectorView extends React.Component {
           </Card.Body>
           <Link to={'/'}>
             {/* <Link to={`/movies/${movie._id}`}> */}
-            <Button variant='link' className='dirview-back-button' style={{ background: '#690f38' }}>Go Back</Button>
+            <Button variant='link' className='dirview-home-button' style={{ background: '#690f38' }}>Home</Button>
           </Link>
         </Card>
       </div>
