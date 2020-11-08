@@ -1,0 +1,330 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Staatliches&display=swap");
+body {
+  background-color: #e4ecf2;
+  font-family: staatliches;
+}
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Staatliches&display=swap");
+body {
+  background-color: #e4ecf2;
+  font-family: staatliches;
+}
+
+.movie-poster-section {
+  float: left;
+  text-align: center;
+  margin-left: 7em;
+  margin-right: 2em;
+}
+
+.button-add-favorite {
+  margin: 1em auto;
+}
+
+.movie-poster {
+  width: 300px;
+}
+
+.movie-info {
+  margin-top: 50px;
+  margin-left: 250px;
+}
+
+.movie-title {
+  margin-top: 2.3em;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  font-size: 35px;
+}
+
+.movie-description {
+  width: 75%;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  font-size: 20px;
+}
+
+.movie-genre {
+  margin-bottom: 10px;
+  margin-left: 20px;
+  font-size: 20px;
+}
+
+.movie-director {
+  margin-bottom: 10px;
+  margin-left: 20px;
+  font-size: 20px;
+}
+
+.home-button {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.director-button {
+  display: flex;
+}
+
+.genre-button {
+  display: flex;
+}
+
+.genre-button,
+.director-button {
+  color: white;
+}
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Staatliches&display=swap");
+body {
+  background-color: #e4ecf2;
+  font-family: staatliches;
+}
+
+h2 {
+  color: #690f38;
+  text-align: center;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  font-size: 400%;
+}
+
+form {
+  width: 550px;
+  margin: auto;
+  position: relative;
+}
+
+input {
+  width: 375px;
+  height: 25px;
+  margin-bottom: 1em;
+}
+
+.login-buttons {
+  margin-top: 75px;
+  text-align: center;
+}
+
+.button-login {
+  background-color: #044266;
+  width: 200px;
+}
+
+.button-register {
+  width: 200px;
+}
+
+.fixed-top .navbar-main {
+  margin-bottom: 1em;
+}
+
+.login-view {
+  width: 100%;
+}
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Staatliches&display=swap");
+body {
+  background-color: #e4ecf2;
+  font-family: staatliches;
+}
+
+h3 {
+  color: #690f38;
+  text-align: center;
+  margin-top: 2em;
+  margin-bottom: 0.2em;
+  font-size: 300%;
+}
+
+.btns-reg {
+  text-align: center;
+}
+
+.button-registration {
+  margin-top: 0.7em;
+  margin-right: 3px;
+  width: 200px;
+}
+
+.button-to-login {
+  margin-top: 0.7em;
+  width: 200px;
+  background-color: #044266;
+}
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Inline+Text:wght@900&display=swap");
+.director-view {
+  font-family: "Big Shoulders Inline Text";
+}
+
+.director-card {
+  margin: 6em auto;
+  width: 50%;
+}
+
+.dirview-home-button {
+  margin-left: 45%;
+  margin-bottom: 5px;
+  color: white;
+  font-family: staatliches;
+}
+
+.dir-name {
+  color: #8a0303;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.dir-bio {
+  font-size: 25px;
+}
+
+.dir-born,
+.dir-died {
+  font-size: 20px;
+}
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Inline+Text:wght@900&display=swap");
+.genre-card {
+  margin: 10em auto;
+  width: 50%;
+}
+
+.genreview-home-button {
+  margin-left: 45%;
+  margin-bottom: 5px;
+}
+
+.genre-description {
+  font-size: 25px;
+  font-family: "Big Shoulders Inline Text";
+}
+
+.genre-name {
+  color: #8a0303;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: "Big Shoulders Inline Text";
+  text-align: center;
+}
+.favorite-movies {
+  display: inline-block;
+  margin-right: 1em;
+  margin-bottom: 1em;
+}
+
+.favorite-movies-title {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.card-img-top {
+  height: 350px;
+}
+
+.button-primary {
+  margin-right: 1em;
+}
+
+.profile-view {
+  margin-top: 5em;
+}
+
+.profile-view .card-body {
+  padding-left: 1em;
+  padding-right: 0;
+}
+
+.profile-text {
+  height: 0.5em;
+  font-size: 1.3em;
+}
+
+.profile-button {
+  background: #690f38;
+  margin-top: 0.3em;
+}
+
+@media all and (max-width: 530px) {
+  .profile-view {
+    width: 75%;
+  }
+}
+@media all and (min-width: 530px) and (max-width: 650px) {
+  .profile-view {
+    width: 70%;
+  }
+}
+@media all and (min-width: 650px) and (max-width: 770px) {
+  .profile-view {
+    width: 70%;
+  }
+}
+@media all and (min-width: 770px) and (max-width: 995px) {
+  .profile-view {
+    width: 50%;
+  }
+}
+@media all and (min-width: 995px) and (max-width: 1200px) {
+  .profile-view {
+    width: 40%;
+  }
+}
+@media all and (min-width: 1200px) {
+  .profile-view {
+    width: 31%;
+  }
+}
+.profile-update {
+  margin-top: 7em;
+}
+
+.btns-update {
+  text-align: center;
+}
+
+.button-update-profile {
+  background-color: #044266;
+  width: 200px;
+}
+
+.button-cancel {
+  margin: 0 5px 0;
+}
+.brand-myflix {
+  color: #690f38;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #044266;
+}
+
+.navbar-main {
+  background: white;
+  margin-bottom: 2em;
+}
+
+.container {
+  margin-bottom: 2em;
+}
+
+.navbar-light .navbar-brand {
+  color: #690f38;
+  font-size: 30px;
+}
+
+.card-column {
+  margin-top: 2em;
+}
+
+.log-out-button:hover {
+  cursor: pointer;
+}
+
+.visibility-filter {
+  margin-top: 5em;
+  width: 100%;
+  color: #690f38;
+  margin-bottom: 0;
+}
+.my-flix {
+  color: steelblue;
+}
+
+/*# sourceMappingURL=/src.78399e21.css.map */
