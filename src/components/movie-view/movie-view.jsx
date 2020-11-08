@@ -38,7 +38,7 @@ export class MovieView extends React.Component {
           <div className="movie-poster-buttons">
             <Button onClick={() => this.addToFavoriteMovies(movie)} className="button-add-favorite" style={{ background: '#690f38' }}>Add to Favorite Movies</Button>
             <Link to={"/"}>
-              <Button className="back-button" style={{ background: '#690f38' }} >Go Back</Button>
+              <Button className="home-button" style={{ background: '#690f38' }} >Home</Button>
             </Link>
           </div>
         </section>
@@ -65,10 +65,6 @@ export class MovieView extends React.Component {
               <Button variant="link" className="director-button" style={{ background: '#690f38' }}>Director Info</Button>
             </Link>
           </div>
-          {/* <Button onClick={() => this.addToFavoriteMovies(movie)} className="button-add-favorite">Add to Favorite Movies</Button> */}
-          {/* <Link to={"/"}>
-            <Button className="back-button" style={{ background: '#690f38' }} >Go Back</Button>
-          </Link> */}
         </section>
       </div >
     );
