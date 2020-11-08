@@ -67,12 +67,7 @@ export function ProfileUpdate(props) {
       isValid = false;
     }
 
-    // if (email.trim().length < 1) {
-    //   emailErr.emailMissing = 'An email address is required for registration';
-    //   isValid = false;
-    // }
-
-    if (!email.includes('.')) {
+    if (!email.includes('.') && !email.includes('@')) {
       emailErr.emailNotEmail = 'A valid email address is required';
       isValid = false;
     }
