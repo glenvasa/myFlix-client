@@ -10,7 +10,7 @@ body {
   float: left;
   text-align: center;
   margin-left: 7em;
-  margin-top: .5em;
+  // margin-top: .3em;
   margin-right: 2em;
 }
 
@@ -32,6 +32,7 @@ body {
 }
 
 .movie-title {
+  margin-top: 2.3em; 
   margin-bottom: 10px;
   margin-left: 20px;
   font-size: 35px
@@ -57,7 +58,7 @@ body {
   font-size: 20px
 }
 
-.back-button {
+.home-button {
   display: inline-block;
   margin-left: 5px;
 }
