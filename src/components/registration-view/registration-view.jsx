@@ -38,6 +38,7 @@ export function RegistrationView(props) {
         })
         .catch(e => {
           console.log('error registering user')
+          alert('Please make sure you enter accurate information')
         });
     };
   }
@@ -63,7 +64,7 @@ export function RegistrationView(props) {
     //   isValid = false;
     // }
 
-    if (!email.includes('.')) {
+    if (!email.includes('.') && !email.includes('@')) {
       emailErr.emailNotEmail = 'A valid email address is required for registration';
       isValid = false;
     }
