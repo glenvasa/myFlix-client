@@ -93,7 +93,7 @@ export class ProfileView extends React.Component {
     return (
       <Container>
         {/* <h2 className="profile-title">Profile Page of {this.state.Username}</h2> */}
-        <Card style={{ width: '35%' }} className="profile-view">
+        <Card className="profile-view">
           <Card.Body>
             <Card.Text className='profile-text'>Username: {this.state.Username}</Card.Text>
             <Card.Text className='profile-text'>Email: {this.state.Email}</Card.Text>
@@ -104,7 +104,7 @@ export class ProfileView extends React.Component {
               </Link>
               <Button onClick={() => this.deleteUser()} className='profile-button to-delete-profile-button ml-1'>Delete Profile</Button>
               <Link to={'/'}>
-                <Button className='profile-button profile-go-back-button ml-1'>Go Back</Button>
+                <Button className='profile-button profile-home-button ml-1'>Home</Button>
               </Link>
             </div>
           </Card.Body>
