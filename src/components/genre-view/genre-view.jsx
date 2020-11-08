@@ -22,6 +22,7 @@ export class GenreView extends React.Component {
   render() {
     const { genre } = this.props;
 
+
     if (!genre) return <div className='main-view' />;
 
     return (
@@ -34,7 +35,7 @@ export class GenreView extends React.Component {
 
           <Link to={'/'}>
             {/* <Link to={`/movies/${movie._id}`}> */}
-            <Button className='genreview-back-button' style={{ background: '#690f38' }}>Go Back</Button>
+            <Button className='genreview-home-button' style={{ background: '#690f38' }}>Home</Button>
           </Link>
         </Card>
       </div>
