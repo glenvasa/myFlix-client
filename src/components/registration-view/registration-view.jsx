@@ -4,22 +4,77 @@ import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import './registration-view.scss';
-
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 export function RegistrationView(props) {
-  const [Username, setUsername] = useState('');
-  const [Password, setPassword] = useState('');
-  const [Email, setEmail] = useState('');
-  const [BirthDate, setBirthDate] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [birthdate, setBirthdate] = useState('');
 
-  // Allows login with random credentials for existing user, no functionality for new users yet
+  const [usernameErr, setUsernameErr] = useState({});
+  const [passwordErr, setPasswordErr] = useState({});
+  const [emailErr, setEmailErr] = useState({});
+  // const [birthdateErr, setBirthdateErr] = useState({});
+
+
   const handleRegister = (e) => {
     e.preventDefault();
-    console.log(Username, Password, Email, BirthDate);
+    const isValid = formValidation();
 
-    // Send a request to the server for authentication then call props.onLoggedIn(Username)
-    props.onLoggedIn(Username);
-  };
+    if (isValid) {
+      axios.post('https://myflix2020.herokuapp.com/users', {
+        Username: username,
+        Password: password,
+        Email: email,
+        Birthdate: birthdate
+      })
+        .then(response => {
+          const data = response.data;
+          console.log(data);
+          alert('You are now registered and may login')
+          window.open('/', '_self');
+        })
+        .catch(e => {
+          console.log('error registering user')
+          alert('Please make sure you enter accurate information')
+        });
+    };
+  }
+  const formValidation = () => {
+    const usernameErr = {};
+    const passwordErr = {};
+    const emailErr = {};
+    const birthdateErr = {};
+    let isValid = true;
+
+    if (username.trim().length < 5) {
+      usernameErr.usernameShort = 'Username must be at least 5 characters';
+      isValid = false;
+    }
+
+    if (password.trim().length < 1) {
+      passwordErr.passwordMissing = 'A password is required for registration';
+      isValid = false;
+    }
+
+    // if (email.trim().length < 1) {
+    //   emailErr.emailMissing = 'An email address is required for registration';
+    //   isValid = false;
+    // }
+
+    if (!email.includes('.') && !email.includes('@')) {
+      emailErr.emailNotEmail = 'A valid email address is required for registration';
+      isValid = false;
+    }
+
+    setUsernameErr(usernameErr);
+    setPasswordErr(passwordErr);
+    setEmailErr(emailErr);
+    return isValid;
+
+  }
 
   return (
     <div className="registration-view">
@@ -28,34 +83,39 @@ export function RegistrationView(props) {
       <Form className="registration-form">
         <Form.Group controlId="formBasicUsername" className="registration-item">
           <Form.Label>Create Username: </Form.Label>
-          <Form.Control type="text" value={Username} onChange={e => setUsername(e.target.value)} placeholder="Username" />
-          <Form.Text className="text-muted">Must be alphanumberic and have a minimum of 8 characters.</Form.Text>
+          <Form.Control type="text" value={username} placeholder="Username" onChange={e => setUsername(e.target.value)} />
+          {Object.keys(usernameErr).map((key) => {
+            return <div key={key} style={{ color: 'red' }}>{usernameErr[key]}</div>
+          })}
         </Form.Group>
 
         <Form.Group controlId="formBasicPassword" className="registration-item">
           <Form.Label>Create Password: </Form.Label>
-          <Form.Control type="password" value={Password} onChange={e => setPassword(e.target.value)} placeholder="Password" />
-          <Form.Text className="text-muted">Must be alphanumberic and have 8-15 characters.</Form.Text>
+          <Form.Control type="password" value={password} placeholder="Password" onChange={e => setPassword(e.target.value)} />
+          {Object.keys(passwordErr).map((key) => {
+            return <div key={key} style={{ color: 'red' }}>{passwordErr[key]}</div>
+          })}
         </Form.Group>
 
         <Form.Group controlId="formBasicEmail" className="registration-item">
           <Form.Label>Enter Email Address: </Form.Label>
-          <Form.Control type="email" placeholder="Email Address" value={Email} onChange={e => setEmail(e.target.value)} />
+          <Form.Control type="email" placeholder="Email Address" value={email} onChange={e => setEmail(e.target.value)} />
+          {Object.keys(emailErr).map((key) => {
+            return <div key={key} style={{ color: 'red' }}>{emailErr[key]}</div>
+          })}
         </Form.Group>
 
         <Form.Group controlId="formBasicBirthdate" className="registration-item">
           <Form.Label>Enter Date of Birth: </Form.Label>
-          <Form.Control type="date" placeholder="YYYY-MM-DD" value={BirthDate} onChange={e => setBirthDate(e.target.value)} />
+          <Form.Control type="date" placeholder="YYYY-MM-DD" value={birthdate} onChange={e => setBirthdate(e.target.value)} />
         </Form.Group>
       </Form>
       <div className="btns-reg">
         <Button type="submit" variant="success" className="button-registration" onClick={handleRegister}>Register</Button>
-        {/* <Link to={"/"}>  */}
-        <Button variant="secondary" className="button-cancel">Cancel</Button>
-        {/* </Link>  */}
+        <Link to={"/"}>
+          <Button className="button-to-login">Login</Button>
+        </Link>
       </div>
-
-
     </div>
   );
 }
@@ -67,4 +127,5 @@ RegistrationView.propTypes = {
     Email: PropTypes.string.isRequired,
     Birthdate: PropTypes.instanceOf(Date).isRequired
   })
-};
+}
+

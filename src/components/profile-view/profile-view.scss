@@ -1,0 +1,87 @@
+.favorite-movies {
+  display: inline-block;
+  margin-right: 1em;
+  margin-bottom: 1em;
+}
+
+.favorite-movies-title {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+
+.card-img-top {
+  height: 350px;
+}
+
+
+
+.button-primary {
+  margin-right: 1em;
+}
+
+.profile-view {
+  margin-top: 5em;
+  // width: 31%;
+  
+}
+
+.profile-view .card-body {
+  padding-left: 1em;
+  padding-right: 0;
+ 
+  // text-align: center;
+}
+
+.profile-text {
+  height: .5em;
+  font-size: 1.3em;
+}
+
+.profile-button {
+  background: #690f38;
+  margin-top: .3em;
+}
+
+
+
+@media all and (max-width: 530px) {
+  .profile-view {
+    width: 75%;
+  }
+}
+
+@media all and (min-width: 530px) and (max-width: 650px) {
+  .profile-view {
+    width: 70%;
+  }
+}
+
+@media all and (min-width: 650px) and (max-width: 770px) {
+  .profile-view {
+    width: 70%;
+  }
+}
+
+
+@media all and (min-width: 770px) and (max-width: 995px) {
+  .profile-view {
+    width: 50%;
+  }
+}
+
+@media all and (min-width: 995px) and (max-width: 1200px) {
+  .profile-view {
+    width: 40%;
+  }
+}
+
+
+@media all and (min-width: 1200px) {
+  .profile-view {
+    width: 31%;
+  }
+}
+
+
+
