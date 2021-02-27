@@ -26,6 +26,6 @@
 - Uses Bootstrap UI library for styling and responsiveness.
 - Utilizes a mix of class and functional React components
 
-## View Deployed Web Application
+## Deployed Application
 
 - https://myflix2020.netlify.app/
